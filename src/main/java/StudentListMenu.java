@@ -171,7 +171,7 @@ public class StudentListMenu {
                         break;
                     case 5: // Selection 5: Export Student List
                         System.out.println("\nExporting the student list...");
-                        ExportStudentList.exportToTextFile(studentList.toString(), "studentList.txt"); // Use the ExportStudentList class to export the list
+                        ExportToFile.exportToTextFile(studentList.toString(), "studentList.txt"); // Use the ExportStudentList class to export the list
                         break;
                     case 6: // Selection 6: Exit
                         System.out.println("\nExiting the program.");

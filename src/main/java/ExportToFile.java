@@ -5,7 +5,7 @@
 import java.io.File;
 import java.io.PrintWriter;
 
-public class ExportStudentList {
+public class ExportToFile {
     /* This method handles the error when exporting the student list to a file
     * @param errorMessage The error message to be displayed
     * @param errorTitle The title of the error message */
@@ -21,7 +21,7 @@ public class ExportStudentList {
                                 + File.separator + "Temp" 
                                 + File.separator; // Define the directory path as Temp in the user's home directory
         File directory = new File(directoryPath); // Create a File object for the directory
-        
+
         if (!directory.exists()) { // Check if the directory exists
             if (!directory.mkdirs()) { // Check if the directory was created successfully
                 handleExportError("Could not create directory: " + 
