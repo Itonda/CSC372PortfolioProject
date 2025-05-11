@@ -7,38 +7,6 @@ public class StudentListMenu {
     private StudentList studentList = new StudentList();
     private InputStudent inputStudent = new InputStudent();
     private int selection = 0;
-    /* This method is used to confirm the removal of the student from the list
-     * It displays the student ID and name of the student to be removed
-     * and asks the user to confirm the removal
-     * @param student The student to be removed */
-    private boolean confirmRemoveStudent (Student student) throws InvalidStudentException {
-        System.out.println("\nAre you sure you want to remove the following student?");
-        System.out.println("ID: " + student.getStudentID());
-        System.out.println("Name: " + student.getName());
-
-        return getYesNoConfirmation("Enter 'yes' to confirm or 'no' to cancel: ");
-    }
-    /* This method confirms if a user wants to add a student
-     * Since the studentList.addToList method does not provide an escape
-     * give the user a chance to exit switch case 1 */
-    private boolean confirmAddStudent () throws InvalidStudentException {
-        return getYesNoConfirmation("\nAre you sure you want to add a student? (yes/no): ");
-    }
-
-    /* Helper method for yes/no confirmation 
-     * @param prompt The prompt to display to the user */
-    private boolean getYesNoConfirmation(String prompt) throws InvalidStudentException {
-        System.out.print(prompt);
-        String confirmation = scanner.nextLine().trim(); // Read user input and trim whitespace
-
-        if (confirmation.equalsIgnoreCase("yes")) { // Check if the input is "yes"
-            return true;
-        } else if (confirmation.equalsIgnoreCase("no")) { // Check if the input is "no"
-            return false;
-        } else {
-            throw new InvalidStudentException("\nInvalid input. Please enter 'yes' or 'no'."); // Throw an exception for invalid input
-        }
-    }
     /* This method diplays the menu for sorting the student list
      * It shows the options available to the user */
     private void displaySortMenu() {
@@ -70,6 +38,37 @@ public class StudentListMenu {
 
         selection = scanner.nextInt(); // Read the user's selection
         scanner.nextLine(); // Consume the newline character left by nextInt()
+    }
+    /* Helper method for yes/no confirmation 
+     * @param prompt The prompt to display to the user */
+    private boolean getYesNoConfirmation(String prompt) throws InvalidStudentException {
+        System.out.print(prompt);
+        String confirmation = scanner.nextLine().trim(); // Read user input and trim whitespace
+
+        if (confirmation.equalsIgnoreCase("yes")) { // Check if the input is "yes"
+            return true;
+        } else if (confirmation.equalsIgnoreCase("no")) { // Check if the input is "no"
+            return false;
+        } else {
+            throw new InvalidStudentException("\nInvalid input. Please enter 'yes' or 'no'."); // Throw an exception for invalid input
+        }
+    }
+    /* This method is used to confirm the removal of the student from the list
+     * It displays the student ID and name of the student to be removed
+     * and asks the user to confirm the removal
+     * @param student The student to be removed */
+    private boolean confirmRemoveStudent (Student student) throws InvalidStudentException {
+        System.out.println("\nAre you sure you want to remove the following student?");
+        System.out.println("ID: " + student.getStudentID());
+        System.out.println("Name: " + student.getName());
+
+        return getYesNoConfirmation("Enter 'yes' to confirm or 'no' to cancel: ");
+    }
+    /* This method confirms if a user wants to add a student
+     * Since the studentList.addToList method does not provide an escape
+     * give the user a chance to exit switch case 1 */
+    private boolean confirmAddStudent () throws InvalidStudentException {
+        return getYesNoConfirmation("\nAre you sure you want to add a student? (yes/no): ");
     }
     /* This method executes the sort menu selection
      * It sorts the student list based on the user's choice */
