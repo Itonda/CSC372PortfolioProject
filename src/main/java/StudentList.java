@@ -1,5 +1,5 @@
 import java.util.Collections;
-import java.util.Comparator; // Add this import
+import java.util.Comparator; 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -33,39 +33,38 @@ public class StudentList {
     public List<Student> getStudentList() {
         return Collections.unmodifiableList(students);
     }
-
-    // --- Integrated Sorting Methods ---
-
+    /* This method sorts the list of students using a comparator
+     * @param comparator The comparator to be used for sorting */
     private void sort(Comparator<Student> comparator) {
         if (this.students != null) { // 'this.students' is the actual mutable list
             this.students.sort(comparator);
         }
     }
-
+    // This method sorts the list of students by name in ascending order
     public void sortByNameAscending() {
-        sort(Comparator.comparing(Student::getName));
+        sort(Comparator.comparing(Student::getName)); // Sort by name in ascending order using the comparator
     }
-
+    // This method sorts the list of students by name in descending order
     public void sortByNameDescending() {
         sort(Comparator.comparing(Student::getName).reversed());
     }
-
+    // This method sorts the list of students by GPA in ascending order
     public void sortByGpaAscending() {
         sort(Comparator.comparing(Student::getGPA));
     }
-
+    // This method sorts the list of students by GPA in descending order
     public void sortByGpaDescending() {
         sort(Comparator.comparing(Student::getGPA).reversed());
     }
-
+    // This method sorts the list of students by ID in ascending order
     public void sortByIdAscending() {
         sort(Comparator.comparingInt(Student::getStudentID));
     }
-
+    // This method sorts the list of students by ID in descending order
     public void sortByIdDescending() {
         sort(Comparator.comparingInt(Student::getStudentID).reversed());
     }
-    /* This method prints the list of students to the console */
+    // This method prints the list of students to the console 
     public void printList() {
         for (Student student : students) {
             System.out.println(student.toString());
@@ -87,7 +86,6 @@ public class StudentList {
         }
         return -1; // Student not found
     }
-
     public boolean removeStudentByID(int studentID) {
         // Search for the student by ID
         int index = searchById(studentID);
