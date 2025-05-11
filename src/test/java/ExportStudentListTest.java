@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-class ExportStudentListTest {
+class ExportToFileTest {
 
     @Test
     void testExportToTextFile_Success() throws IOException {
@@ -17,7 +17,7 @@ class ExportStudentListTest {
         String expectedFilePath = System.getProperty("user.home") + File.separator + "Temp" + File.separator + testFilename;
 
         // Call the export method
-        ExportStudentList.exportToTextFile(testContent, testFilename);
+        ExportToFile.exportToTextFile(testContent, testFilename);
 
         // Verify the file exists
         File exportedFile = new File(expectedFilePath);
@@ -37,7 +37,7 @@ class ExportStudentListTest {
         String testContent = "Student1: Alice, GPA: 3.8";
 
         // Expect no exception, just error logging (manual verification needed)
-        ExportStudentList.exportToTextFile(testContent, invalidFilename);
+        ExportToFile.exportToTextFile(testContent, invalidFilename);
 
         // The file should not exist since the path is invalid
         File exportedFile = new File(invalidFilename);
