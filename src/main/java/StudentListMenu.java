@@ -1,12 +1,12 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+/* This class handles the menu for the student list
+ * It provides options to add, remove, print, sort, and export the student list */
 public class StudentListMenu {
-    private int selection = 0;
-    private StudentList studentList = new StudentList();
     private Scanner scanner = new Scanner(System.in);
-    InputStudent inputStudent = new InputStudent();
-    SortStudents sortStudents = new SortStudents();
-
+    private StudentList studentList = new StudentList();
+    private InputStudent inputStudent = new InputStudent();
+    private int selection = 0;
     /* This method is used to confirm the removal of the student from the list
      * It displays the student ID and name of the student to be removed
      * and asks the user to confirm the removal
@@ -81,27 +81,27 @@ public class StudentListMenu {
                 
                 switch (selection) { // Check the user's selection and execute the corresponding action
                     case 1: // Selection 1: Sort by name ascending
-                        sortStudents.sortByNameAscending(studentList); // Use the SortStudents class to sort the list for each case
+                        studentList.sortByNameAscending(); // Use the studentList class to sort the list for each case
                         System.out.println("\nStudent list sorted by name in ascending order.");
                         break;
                     case 2: // Selection 2: Sort by name descending
-                        sortStudents.sortByNameDescending(studentList); 
+                        studentList.sortByNameDescending(); 
                         System.out.println("\nStudent list sorted by name in descending order.");
                         break;
                     case 3: // Selection 3: Sort by GPA ascending
-                        sortStudents.sortByGPAAscending(studentList); 
+                        studentList.sortByGpaAscending(); 
                         System.out.println("\nStudent list sorted by GPA in ascending order.");
                         break;
                     case 4: // Selection 4: Sort by GPA descending
-                        sortStudents.sortByGPADescending(studentList); 
+                        studentList.sortByGpaDescending(); 
                         System.out.println("\nStudent list sorted by GPA in descending order.");
                         break;
                     case 5: // Selection 5: Sort by ID ascending
-                        sortStudents.sortByIDAscending(studentList); 
+                        studentList.sortByIdAscending(); 
                         System.out.println("\nStudent list sorted by ID in ascending order.");
                         break;
                     case 6: // Selection 6: Sort by ID descending
-                        sortStudents.sortByIDDescending(studentList); 
+                        studentList.sortByIdDescending(); 
                         System.out.println("\nStudent list sorted by ID in descending order.");
                         break;
                     case 7: // Selection 7: Exit to main menu
@@ -144,10 +144,10 @@ public class StudentListMenu {
                             break; // If exit condition: exit to main menu
                         }
                         
-                        int index = studentList.searchStudent.searchByID(studentList, studentId); // Search for the student by ID and assign the index
+                        int index = studentList.searchById(studentId); // Search for the student by ID and assign the index
 
                         if (index != -1) { // If the student is found
-                            Student studentToRemove = studentList.students.get(index); // Get the student object    
+                            Student studentToRemove = studentList.getStudentList().get(index); // Get the student object    
                             if (confirmRemoveStudent(studentToRemove)) { // Confirm removal
                                 studentList.removeStudentByID(studentId); // Remove the student from the list
                                 System.out.println("\nStudent removed successfully.");
