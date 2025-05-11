@@ -1,13 +1,12 @@
-
 // This class is the blueprint for a student object
 public class Student {
     // Static variable to track the next student ID
     private static int nextStudentID = 100;
     // Attributes
-    private int studentID;
-    private String name;
-    private String address;
-    private Double gpa;  
+    private final int studentID;
+    private final String name;
+    private final String address;
+    private final Double gpa;  
     // Default constructor
     public Student() {
         this.studentID = nextStudentID++;
