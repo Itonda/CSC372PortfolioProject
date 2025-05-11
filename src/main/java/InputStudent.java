@@ -53,8 +53,8 @@ public class InputStudent {
         return getValidatedInput(prompt, scanner, rawInput -> { // Use the generic method to validate student ID input
             try {
                 int studentId = Integer.parseInt(rawInput); // Parse the input to an integer
-                if (studentId < 0) { // Check if the student ID is valid
-                    throw new InvalidStudentException("Student ID must be a positive number."); // Throw an exception if invalid
+                if (studentId >= 1 && studentId <= 99) { // Check if the student ID is valid. ALLOW FOR 0 for exit condition later
+                    throw new InvalidStudentException("Student ID must be a positive number greater than 99."); // Throw an exception if invalid
                 }
                 return studentId;
             } catch (NumberFormatException e) { // Catch any parsing errors
