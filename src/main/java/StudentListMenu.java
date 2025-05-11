@@ -135,11 +135,11 @@ public class StudentListMenu {
                             System.out.println("\nStudent addition canceled."); // If the user does not confirm, exit the case
                             break;
                         }
-                    case 2: // Selection 2: Remove Student - Provide exit condition (00)
-                        int studentId = inputStudent.getStudentIdFromUser("\nEnter student ID to remove (enter 00 for main menu): ", 
+                    case 2: // Selection 2: Remove Student - Provide exit condition (0)
+                        int studentId = inputStudent.getStudentIdFromUser("\nEnter student ID to remove (enter 0 for main menu): ", 
                                                                             scanner); // Get the student ID or exit input from user
 
-                        if (studentId == 00) { // Check for exit condition
+                        if (studentId == 0) { // Check for exit condition
                             System.out.println("\nExiting to main menu.");
                             break; // If exit condition: exit to main menu
                         }
@@ -147,7 +147,7 @@ public class StudentListMenu {
                         int index = studentList.searchStudent.searchByID(studentList, studentId); // Search for the student by ID and assign the index
 
                         if (index != -1) { // If the student is found
-                            Student studentToRemove = studentList.students.get(index); // Get the student object
+                            Student studentToRemove = studentList.students.get(index); // Get the student object    
                             if (confirmRemoveStudent(studentToRemove)) { // Confirm removal
                                 studentList.removeStudentByID(studentId); // Remove the student from the list
                                 System.out.println("\nStudent removed successfully.");
@@ -160,7 +160,7 @@ public class StudentListMenu {
                         break;  
                     case 3: // Selection 3: Print Student List
                         if (studentList.isEmpty()) { // Check if the list is empty
-                            System.out.println("The student list is empty."); // If empty, display message
+                            System.out.println("\nThe student list is empty."); // If empty, display message
                         } else {
                             System.out.println("\nStudent List:"); // If not empty, display the student list
                         }
