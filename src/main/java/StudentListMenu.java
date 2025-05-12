@@ -114,6 +114,9 @@ public class StudentListMenu {
             }
         }
     }
+    /* This method executes the main menu selection
+     * It handles user input and performs actions based on the user's choice 
+     * Improvement suggestion - Reduce bloat by handling case operation logic elsewhere, similar to executeSortMenuSelection */
     public void executeMainMenuSelection() throws InvalidStudentException {
         try (Scanner scanner = new Scanner(System.in)) { // Create a new Scanner object for user input
             while (true) { // Loop until the user chooses to exit
