@@ -172,9 +172,14 @@ public class StudentListMenu {
                             executeSortMenuSelection(scanner); // Call the method to execute sort menu selection
                             break;
                         case 5: // Selection 5: Export Student List
-                            System.out.println("\nExporting the student list...");
-                            ExportToFile.exportToTextFile(studentList.toString(), "studentList.txt"); // Use the ExportStudentList class to export the list
-                            break;
+                            if (getYesNoConfirmation("\nAre you sure you want to export the student list? (yes/no): ", scanner)) { // Confirm export
+                                System.out.println("\nExporting the student list...");
+                                ExportToFile.exportToTextFile(studentList.toString(), "studentList.txt"); // Use the ExportStudentList class to export the list
+                                break;
+                            } else {
+                                System.out.println("\nExport canceled."); // If not confirmed, exit the case
+                                break;
+                            }
                         case 6: // Selection 6: Exit
                             System.out.println("\nExiting the program.");
                             return; // Exit the program
